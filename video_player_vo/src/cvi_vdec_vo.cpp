@@ -242,8 +242,8 @@ int CviVdecVO::init_cviSdk() {
     stVpssGrpAttr.u32MaxH = VDEC_HEIGHT;
     stVpssGrpAttr.u8VpssDev = 0;
 
-    astVpssChnAttr[VpssChn].u32Width = VPSS_WIDTH;
-    astVpssChnAttr[VpssChn].u32Height = VPSS_HEIGHT;
+    astVpssChnAttr[VpssChn].u32Width = VDEC_WIDTH;
+    astVpssChnAttr[VpssChn].u32Height = VDEC_HEIGHT;
     astVpssChnAttr[VpssChn].enVideoFormat = VIDEO_FORMAT_LINEAR;
     astVpssChnAttr[VpssChn].enPixelFormat = SAMPLE_PIXEL_FORMAT;
     astVpssChnAttr[VpssChn].stFrameRate.s32SrcFrameRate = 30;
@@ -285,7 +285,7 @@ int CviVdecVO::init_cviSdk() {
 
     stVoConfig.VoDev = VoDev;
     stVoConfig.stVoPubAttr.enIntfType = VO_INTF_MIPI;
-    stVoConfig.stVoPubAttr.enIntfSync = VO_OUTPUT_720x1280_60;
+    stVoConfig.stVoPubAttr.enIntfSync = VO_OUTPUT_1080P30;
     stVoConfig.stDispRect = stDefDispRect;
     stVoConfig.stImageSize = stDefImageSize;
     stVoConfig.enPixFormat = SAMPLE_PIXEL_FORMAT;
@@ -324,12 +324,12 @@ int CviVdecVO::init_cviSdk() {
                                       PIXEL_FORMAT_YUV_PLANAR_444,
                                       DATA_BITWIDTH_8, COMPRESS_MODE_NONE);
         }
-        pVdecChn[i]->stDispRect.s32X =
-            (VPSS_WIDTH >> (stVdecCfg.s32ChnNum - 1)) * i;
-        pVdecChn[i]->stDispRect.s32Y = 0;
-        pVdecChn[i]->stDispRect.u32Width =
-            (VPSS_WIDTH >> (stVdecCfg.s32ChnNum - 1));
-        pVdecChn[i]->stDispRect.u32Height = 720;
+        // pVdecChn[i]->stDispRect.s32X =
+        //     (VPSS_WIDTH >> (stVdecCfg.s32ChnNum - 1)) * i;
+        // pVdecChn[i]->stDispRect.s32Y = 0;
+        // pVdecChn[i]->stDispRect.u32Width =
+        //     (VPSS_WIDTH >> (stVdecCfg.s32ChnNum - 1));
+        // pVdecChn[i]->stDispRect.u32Height = 720;
         pVdecChn[i]->vdec_vb_source = VB_SOURCE_USER;
         pVdecChn[i]->vdec_pixel_format = PIXEL_FORMAT_YUV_PLANAR_420;
     }

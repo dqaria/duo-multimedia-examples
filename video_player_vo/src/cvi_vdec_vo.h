@@ -13,10 +13,10 @@ extern "C" {
 
 #define VDEC_WIDTH 1920
 #define VDEC_HEIGHT 1080
-#define VPSS_WIDTH 800
-#define VPSS_HEIGHT 1280
-#define VO_WIDTH 800
-#define VO_HEIGHT 1280
+#define VPSS_WIDTH 1920
+#define VPSS_HEIGHT 1080
+#define VO_WIDTH 1920
+#define VO_HEIGHT 1080
 
 typedef struct _SAMPLE_VDEC_PARAM_S {
     VDEC_CHN VdecChn;
